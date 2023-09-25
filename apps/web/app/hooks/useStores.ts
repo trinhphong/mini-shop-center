@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 
 const fetchStores = async () => {
-  const response = await fetch('https://651131a0829fa0248e3fa047.mockapi.io/api/v1/stores')
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/stores`)
   return response.json()
 }
 
