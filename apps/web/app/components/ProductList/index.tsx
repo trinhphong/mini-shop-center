@@ -2,20 +2,20 @@
 
 import styles from "./styles.module.css";
 import { Store } from "../../types";
-import { useStores } from "../../hooks/useStores";
 import { Card } from "ui";
+import { useProducts } from "../../hooks/useProducts";
 
-export default function StoreList(): JSX.Element {
-  const { data: stores } = useStores();
+export default function ProductList({ storeId }): JSX.Element {
+  const { data: products } = useProducts(storeId);
 
   return (
     <div className={styles.grid}>
-      {stores?.map((store: Store) => (
+      {products?.map((store: Store) => (
         <Card
           className={styles.card}
           key={store.id}
           title={store.name}
-          href={`stores/${store.id}`}
+          href='/'
         >
           ---
         </Card>
