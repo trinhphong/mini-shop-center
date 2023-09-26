@@ -27,8 +27,7 @@ const useStores = () => {
 const useStore = (storeId: string) => {
   return useQuery({
     queryKey: ['store'],
-    queryFn: () => fetchStore(storeId),
-    staleTime: STALE_TIME
+    queryFn: () => fetchStore(storeId)
   })
 }
 

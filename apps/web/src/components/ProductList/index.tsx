@@ -1,10 +1,11 @@
 import { useProducts } from "../../hooks/useProducts";
 import { Product } from "../../interfaces";
+import { Card } from "ui";
 
 export default function ProductList({ storeId }: { storeId: string }): JSX.Element {
-  const { isLoading, data: products } = useProducts(storeId);
+  const { isLoading, isFetching, data: products } = useProducts(storeId);
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <div>Loading...</div>
   }
 
@@ -15,7 +16,9 @@ export default function ProductList({ storeId }: { storeId: string }): JSX.Eleme
   return (
     <div>
       {products?.map((product: Product) => (
-        <li key={product.id}>{ product.name }</li>
+        <Card className="Card" key={product.id} title={product.name}>
+          <button>Like</button>
+        </Card>
       ))}
     </div>
   );

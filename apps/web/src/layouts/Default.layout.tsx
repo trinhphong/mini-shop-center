@@ -3,15 +3,9 @@ import { Outlet, Link } from "react-router-dom";
 function DefaultLayout(): JSX.Element {
   return (
     <div>
+      <hr />
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/products">Products</Link>
-          </li>
-        </ul>
+        <Link to="/">Stores</Link>
       </nav>
 
       <hr />
