@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 
-function DefaultLayout() {
+function DefaultLayout(): JSX.Element {
   return (
     <div>
       <nav>

@@ -1,10 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
+import { Product } from '../interfaces';
+import { environment } from '../environment';
 
 const STALE_TIME = 1 * 60 * 1000; // 1 min
 
-const fetchProducts = async (storeId: string) => {
-  const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/stores/${storeId}/products`)
-  return response.json()
+const fetchProducts = async (storeId: string): Promise<Product[]> => {
+  const response = await fetch(`${environment.baseUrl}/stores/${storeId}/products`)
+  const data = await response.json() as Product[];
+  return data;
 }
 
 const useProducts = (storeId: string) => {
