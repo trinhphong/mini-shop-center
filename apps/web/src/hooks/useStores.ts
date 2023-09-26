@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Store } from '../interfaces';
 import { environment } from '../environment';
 
-const STALE_TIME = 60 * 60 * 1000; // 1hr
+const STALE_TIME = 5 * 60 * 1000; // 5 mins
 
 const fetchStores = async (): Promise<Store[]> => {
   const response = await fetch(`${environment.baseUrl}/stores`);

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useStores } from "../../hooks/useStores";
 import { Store } from "../../interfaces";
 
@@ -7,7 +8,9 @@ export default function StoreList(): JSX.Element {
   return (
     <div>
       {stores?.map((store: Store) => (
-        <li key={store.id}>{ store.name }</li>
+        <li key={store.id}>
+          <Link to={`stores/${store.id}/products`}>{ store.name }</Link>
+        </li>
       ))}
     </div>
   );
