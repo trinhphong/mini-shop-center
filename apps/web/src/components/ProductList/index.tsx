@@ -1,10 +1,12 @@
-"use client";
-
 import { useProducts } from "../../hooks/useProducts";
 import { Product } from "../../interfaces";
 
 export default function ProductList({ storeId }: { storeId: string }): JSX.Element {
-  const { data: products } = useProducts(storeId);
+  const { isLoading, data: products } = useProducts(storeId);
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
   if (!products) {
     return <div>Not found Product</div>

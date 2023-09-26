@@ -3,7 +3,11 @@ import { useStores } from "../../hooks/useStores";
 import { Store } from "../../interfaces";
 
 export default function StoreList(): JSX.Element {
-  const { data: stores } = useStores();
+  const { data: stores, isLoading } = useStores();
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div>
